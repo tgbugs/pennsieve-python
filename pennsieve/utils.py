@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import absolute_import, division, print_function
-from future.utils import integer_types, string_types
-
 import datetime
 
 from pennsieve.extensions import numpy as np
 from pennsieve.extensions import pandas as pd
 from pennsieve.extensions import require_extension
+
+integer_types = int,
+string_types = str,
+as_native_str = lambda: (lambda f: f)
+PY2 = False
 
 # data type helpers
 

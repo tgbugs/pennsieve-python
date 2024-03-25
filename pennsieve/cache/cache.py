@@ -1,4 +1,3 @@
-from __future__ import absolute_import, division, print_function
 from builtins import filter, object, zip
 
 import io
@@ -17,8 +16,6 @@ from pennsieve.extensions import pandas as pdr
 from pennsieve.extensions import require_extension
 from pennsieve.models import DataPackage, TimeSeriesChannel
 from pennsieve.utils import usecs_since_epoch, usecs_to_datetime
-
-from .cache_segment_pb2 import CacheSegment
 
 logger = log.get_logger("pennsieve.cache")
 
@@ -84,6 +81,7 @@ def compact_cache(cache, max_mb):
 
 @require_extension
 def create_segment(channel, series):
+    raise NotImplementedError('no protobuf')
     segment = CacheSegment()
     segment.channelId = channel.id
     segment.index = series.index.astype(np.int64).values.tobytes()
@@ -93,6 +91,7 @@ def create_segment(channel, series):
 
 @require_extension
 def read_segment(channel, bytes):
+    raise NotImplementedError('no protobuf')
     segment = CacheSegment.FromString(bytes)
     index = pd.to_datetime(np.frombuffer(segment.index, np.int64))
     data = np.frombuffer(segment.data, np.double)

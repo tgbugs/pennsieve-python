@@ -1,6 +1,3 @@
-from __future__ import division
-from future.utils import raise_from
-
 import errno
 import json
 import os
@@ -64,7 +61,7 @@ def validate_agent_installation(settings):
     try:
         agent_version = semver.VersionInfo.parse(version.decode().strip())
     except ValueError as e:
-        raise_from(AgentError("Invalid version string"), e)
+        raise AgentError("Invalid version string") from e
 
     if agent_version < MINIMUM_AGENT_VERSION:
         raise AgentError(

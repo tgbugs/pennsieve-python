@@ -142,8 +142,6 @@ Additional environment variables and their corresponding config options:
 
 """
 
-from __future__ import absolute_import, division, print_function
-
 import configparser
 import os
 from warnings import warn

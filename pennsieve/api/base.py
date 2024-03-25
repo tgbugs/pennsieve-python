@@ -1,14 +1,10 @@
-from __future__ import absolute_import, division, print_function
-from future import standard_library
-from future.utils import integer_types, string_types
+from pennsieve.utils import integer_types, string_types
 
 from warnings import warn
 
 from pennsieve import log
 from pennsieve.models import get_package_class
 
-# urllib compatibility
-standard_library.install_aliases()
 import urllib.parse  # isort:skip
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

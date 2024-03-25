@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, division, print_function
-from future.utils import string_types
+from pennsieve.utils import string_types
 
 import datetime
 import math

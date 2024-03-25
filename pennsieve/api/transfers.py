@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, division, print_function
 from builtins import dict, object
-from future.utils import string_types
+from pennsieve.utils import string_types
 
 import io
 import os

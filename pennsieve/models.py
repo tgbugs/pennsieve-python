@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, division, print_function
 from builtins import object, zip
-from future.utils import PY2, as_native_str, string_types
+from pennsieve.utils import PY2, as_native_str, string_types
 
 import datetime
 import io

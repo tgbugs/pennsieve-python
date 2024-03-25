@@ -2,3 +2,4 @@ include requirements.txt
 include README.rst
 include INSTALL.rst
 include LICENSE
+recursive-exclude tests *

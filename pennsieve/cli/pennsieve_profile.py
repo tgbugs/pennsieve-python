@@ -41,7 +41,6 @@ For additional features, install the Pennsieve CLI Agent:
 https://developer.pennsieve.io/agent
 """
 
-from __future__ import absolute_import, print_function
 from builtins import input
 
 import io

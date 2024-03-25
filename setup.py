@@ -1,5 +1,3 @@
-from __future__ import absolute_import, division, print_function
-
 import io
 import re
 from os import path
@@ -30,9 +28,8 @@ setup(
     author_email="joostw@upenn.edu",
     description="Python client for the Pennsieve Platform",
     long_description=long_description,
-    packages=find_packages(),
+    packages=find_packages(exclude=('tests',)),
     package_dir={"pennsieve": "pennsieve"},
-    setup_requires=["cython"],
     install_requires=reqs,
     extras_require={"data": ["numpy>=1.13", "pandas>=0.20"]},
     python_requires=">=3.6, <4.0",

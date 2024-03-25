@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # pennsieve-specific
-from __future__ import absolute_import, division, print_function
 from builtins import object
-from future.utils import as_native_str
+from pennsieve.utils import as_native_str
 
 from warnings import warn
 

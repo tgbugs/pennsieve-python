@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, division, print_function
 from builtins import dict, object
-from future.utils import raise_from
 
 import base64
 import json
 from warnings import warn
 
+import jwt
 import boto3
 import requests
-from jose import jwk, jwt
-from jose.utils import base64url_decode
 from requests import Session
 from requests.adapters import HTTPAdapter
 from requests.exceptions import HTTPError
@@ -45,7 +42,7 @@ class PennsieveRequest(object):
             resp.raise_for_status()
         except HTTPError as e:  # raise for status raise an HTTPError, so we can use it to grab the message
             if resp.text:
-                raise_from(HTTPError(resp.content, response=resp), e)
+                raise HTTPError(resp.content, response=resp) from e
             else:
                 raise e
         return
@@ -129,7 +126,7 @@ class ClientSession(object):
         id_token_jwt = response["AuthenticationResult"]["IdToken"]
 
         # Since we passed the verification, we can now safely use the claims
-        claims = jwt.get_unverified_claims(id_token_jwt)
+        claims = jwt.decode(id_token_jwt, algorithms=['RS256'], options={'verify_signature': False})
 
         # Ensures that `self._session` exists
         self.session
